@@ -1,3 +1,6 @@
+import { config as conf } from "dotenv";
+conf()
+
 const _config={  // '_' is used to indicate that this is a private variable
     port:process.env.PORT,
 }
