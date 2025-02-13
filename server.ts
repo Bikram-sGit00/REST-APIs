@@ -8,5 +8,5 @@ const startServer=()=>{
         console.log(`Server is running on port ${port}`);
     });
 }
-
 startServer();
+
