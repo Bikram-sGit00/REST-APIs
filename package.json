@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "this is an e-book api project",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon server.ts"
   },
