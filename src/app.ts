@@ -1,5 +1,6 @@
 import express, {Request,Response ,NextFunction } from "express";
 import { HttpError } from "http-errors";
+import { config } from "./config/config";
 
 const app = express();
 
@@ -12,7 +13,9 @@ app.get("/", (req, res, next) => {
  app.use((err:HttpError,req:Request,res:Response,next:NextFunction)=>{
     const statusCode=err.statusCode || 500;
     return res.status(statusCode).json({
-        message:err.message
+        message:err.message, //used to send the error message to the client...
+        errorStack:config.env==="development"? err.stack:"", //error stack gives us the whole information about the error...
+        
     })
  }) // "use" is used to register a middleware function with the application...
 
