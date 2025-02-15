@@ -3,6 +3,7 @@ import globalErrorHandler from "./middlewares/globalErrorHandler";
 import userRouter from "./user/userRouter";
 
 const app = express();
+app.use(express.json()); //middleware to parse Json data,by defalut it is disabled in express...
 
 app.get("/", (req, res, next) => {
   //   // throw new Error("we can throw error in JS like this");
@@ -10,7 +11,7 @@ app.get("/", (req, res, next) => {
   //   throw error;
   res.json({ message: "Welcome!" });
 });
-app.use("/api/users",userRouter);
+app.use("/api/users", userRouter);
 app.use(globalErrorHandler);
 
 export default app;
