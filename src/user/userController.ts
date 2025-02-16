@@ -2,7 +2,6 @@ import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
 import userModel from "./userModel";
 import bcrypt from "bcrypt";
-// import jwt from "jsonwebtoken";
 import { sign } from "jsonwebtoken";
 import { config } from "../config/config";
 
@@ -31,8 +30,9 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
 
   //JWT token generation
   const token = sign({ sub: newUser._id }, config.jwtSecret as string, {
-    expiresIn: "7d", // ^
-  }); //                 ----> sub is a subject,which is a standard claim of JWT token,which is used to identify the subject of the JWT token...
+    expiresIn: "7d", //    ^
+    algorithm: "HS256", // |----> these are the options which we can pass to sign method...
+  }); //                   |----> sub is a subject,which is a standard claim of JWT token,which is used to identify the subject of the JWT token...
   //sign is a method from jsonwebtoken module,which will generate a token...
 
   //process
