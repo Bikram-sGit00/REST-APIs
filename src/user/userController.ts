@@ -53,10 +53,14 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
 
     //process
     //response
-    res.json({ accessToken: token }); //sending the token as a response...
+    res.send(201).json({ accessToken: token }); //sending the token as a response...
   } catch (err) {
     return next(createHttpError(500, "Server error @JWT token generation"));
   }
 };
 
-export { createUser };
+const loginUser = async (req: Request, res: Response, next: NextFunction) => {
+  res.json({ message: "Login route" });
+};
+
+export { createUser, loginUser };
