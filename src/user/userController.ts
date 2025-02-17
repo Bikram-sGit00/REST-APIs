@@ -60,7 +60,33 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const loginUser = async (req: Request, res: Response, next: NextFunction) => {
-  res.json({ message: "Login route" });
+  const { email, password } = req.body;
+  if (!email || !password) {
+    const error = createHttpError(400, "Please provide all the details");
+    return next(error);
+  }
+  let user: User | null = null;
+  try {
+    //check for existing user
+    user = await userModel.findOne({ email });
+    if (!user) {
+      return next(createHttpError(404, "user not found"));
+    }
+  } catch (err) {
+    return next(
+      createHttpError(500, "Server error while getting user details")
+    );
+  }
+  const ismatch = await bcrypt.compare(password, user.password); //compare is a method from bcrypt module,which will compare the password with the hashed password...
+  if (!ismatch) {
+    return next(createHttpError(401, "Invalid credentials"));
+  }
+  // create a JWT token
+  const token = sign({ sub: user._id }, config.jwtSecret as string, {
+    expiresIn: "7d",
+    algorithm: "HS256",
+  });
+  res.json({ accessToken: token });
 };
 
 export { createUser, loginUser };
