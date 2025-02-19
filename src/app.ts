@@ -13,7 +13,7 @@ app.get("/", (req, res, next) => {
   res.json({ message: "Welcome!" });
 });
 app.use("/api/users", userRouter);
-app.use("api/books", bookRouter);
+app.use("/api/books", bookRouter);
 app.use(globalErrorHandler);
 
 export default app;
