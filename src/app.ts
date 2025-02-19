@@ -1,7 +1,7 @@
 import express from "express";
 import globalErrorHandler from "./middlewares/globalErrorHandler";
 import userRouter from "./user/userRouter";
-import bookRouter from "../book/bookRouter";
+import bookRouter from "./book/bookRouter";
 
 const app = express();
 app.use(express.json()); //middleware to parse Json data,by defalut it is disabled in express...
