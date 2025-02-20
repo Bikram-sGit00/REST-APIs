@@ -33,10 +33,11 @@ const createBook = async (req: Request, res: Response, next: NextFunction) => {
     folder: "book-pdfs",
     format: "pdf",
   });
+  const _req = req as Request & { userId: string };
   const newBook = await bookModel.create({
     title,
     genre,
-    author: "67b62ff795050caf9a923a14",
+    author: _req.userId,
     coverImage: uploadFile.secure_url,
     file: uploadBookFile.secure_url,
   });
