@@ -40,6 +40,8 @@ const createBook = async (req: Request, res: Response, next: NextFunction) => {
     coverImage: uploadFile.secure_url,
     file: uploadBookFile.secure_url,
   });
+  //@ts-ignore
+  console.log("userId", req.userId);
 
   // Delete the files after uploading to cloudinary
   await fs.promises.unlink(filePath);
