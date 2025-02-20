@@ -3,6 +3,7 @@ import cloudinary from "../config/cloudinary";
 import path from "node:path";
 import bookModel from "./bookModel";
 import fs from "node:fs";
+import createHttpError from "http-errors";
 
 const createBook = async (req: Request, res: Response, next: NextFunction) => {
   console.log("files", req.files);
@@ -111,4 +112,12 @@ const updateBook = async (req: Request, res: Response, next: NextFunction) => {
   );
   res.json(updateBook);
 };
-export { createBook, updateBook };
+const listBooks = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const books = await bookModel.find().populate("author", "name email");
+    res.json(books);
+  } catch (error) {
+    return next(createHttpError(500, "Error While Getting Books"));
+  }
+};
+export { createBook, updateBook, listBooks };
