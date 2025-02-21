@@ -156,7 +156,7 @@ const deleteBook = async (req: Request, res: Response, next: NextFunction) => {
     await cloudinary.uploader.destroy(publicCoverFile);
     await cloudinary.uploader.destroy(publicBookFile, { resource_type: "raw" }); // only for pdf
     await bookModel.deleteOne({ _id: bookId });
-    res.json({ message: "Book Deleted Successfully" });
+    res.status(204).json({ message: "Book Deleted Successfully" });
   } catch (error) {
     return next(createHttpError(500, "Error While Deleting Book"));
   }
