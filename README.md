@@ -3,7 +3,7 @@
 
 <p align="center"><img src="https://res.cloudinary.com/dzioaomzl/image/upload/v1740129556/Screenshot_2025-02-21_144816_o9yn4u.png"></p>
 
-<p><i>project demonstrates the creation of a robust and scalable RESTful API for a book website backend using Node.js Express.js MongoDB and Mongoose. It provides a comprehensive example of building a backend from scratch covering key concepts such as API design database interaction and request handling 🚀</i></p>
+<p><i>This project demonstrates the creation of a robust and scalable RESTful API for a book website backend using Node.js Express.js MongoDB and Mongoose. It provides a comprehensive example of building a backend from scratch covering key concepts such as API design database interaction and request handling 🚀</i></p>
 
 <b><i>→RESTful API Design:</b> Implementation of standard HTTP methods (GET, POST, PUT, DELETE) to create a fully functional API for managing book data. <br>
 <b>→Node.js and Express.js:</b> Building the server using Node.js and the Express.js framework for routing and middleware management.<br>
