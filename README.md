@@ -1,7 +1,7 @@
 
 <h1 align="center" id="title"><i><u>REST-APIs</u></i></h1>
 
-<p align="center"><img src="https://images.tutorialedge.net/uploads/rest-api.png" alt="project-image" style="filter: invert(1);"></p>
+<p align="center"><img src="https://res.cloudinary.com/dzioaomzl/image/upload/v1740129556/Screenshot_2025-02-21_144816_o9yn4u.png"></p>
 
 <p><i>project demonstrates the creation of a robust and scalable RESTful API for a book website backend using Node.js Express.js MongoDB and Mongoose. It provides a comprehensive example of building a backend from scratch covering key concepts such as API design database interaction and request handling 🚀</i></p>
 
